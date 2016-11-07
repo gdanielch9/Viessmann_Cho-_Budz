@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniveristyIot.WebApi", "UniveristyIot.WebApi\UniveristyIot.WebApi.csproj", "{52D8FB27-D137-414C-9006-F7D95EF75B21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6322FEC5-EAB5-4D92-9213-801ECF639980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniveristyIot.Tests.Class1", "Source\UniveristyIot.Tests.Class1\UniveristyIot.Tests.Class1.csproj", "{FD87B320-9E00-4FCA-97B3-5B1C8787907C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Production|Any CPU.Build.0 = Production|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Release|Any CPU.ActiveCfg = Production|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Release|Any CPU.Build.0 = Production|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Staging|Any CPU.ActiveCfg = Production|Any CPU
+		{52D8FB27-D137-414C-9006-F7D95EF75B21}.Staging|Any CPU.Build.0 = Production|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Production|Any CPU.Build.0 = Production|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Release|Any CPU.ActiveCfg = Production|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Release|Any CPU.Build.0 = Production|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C}.Staging|Any CPU.Build.0 = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD87B320-9E00-4FCA-97B3-5B1C8787907C} = {6322FEC5-EAB5-4D92-9213-801ECF639980}
+	EndGlobalSection
+EndGlobal

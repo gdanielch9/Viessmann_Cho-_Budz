@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UniveristyIot.WebApi")]
+[assembly: AssemblyTitle("UniversityIot.VitocontrolApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UniveristyIot.WebApi")]
+[assembly: AssemblyProduct("UniversityIot.VitocontrolApi")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("eaa89e72-0b49-4074-8410-de8d79efebd6")]
+[assembly: Guid("cc5c4051-0f96-4748-aab2-771a0da5ddb7")]
 
 // Version information for an assembly consists of the following four values:
 //

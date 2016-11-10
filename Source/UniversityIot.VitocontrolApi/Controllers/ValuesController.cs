@@ -13,9 +13,10 @@ namespace UniveristyIot.WebApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] {
-                ConfigurationManager.AppSettings["userServiceUrl"],
-                ConfigurationManager.AppSettings["gatewayService"]
+            return new[]
+            {
+                ConfigurationManager.AppSettings["gatewayServiceUrl"],
+                ConfigurationManager.AppSettings["userServiceUrl"]
             };
         }
 

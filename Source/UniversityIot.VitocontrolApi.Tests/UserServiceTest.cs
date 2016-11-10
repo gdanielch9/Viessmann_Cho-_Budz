@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using UniversityIot.VitocontrolApi.Entities;
+using UniversityIot.VitocontrolApi.Repositories;
+using UniversityIot.VitocontrolApi.Services;
 
 namespace UniversityIot.VitocontrolApi.Tests
 {
@@ -15,28 +18,56 @@ namespace UniversityIot.VitocontrolApi.Tests
         private Mock<UserRepository> _userRepositoryMock;
         private UserService _sut;
 
+        [SetUp]
+        public void SetUp()
+        {
+            _userRepositoryMock = new Mock<UserRepository>();
+            _sut = new UserService(_userRepositoryMock.Object);
+        }
+
 
         [Test]
-        void WhenUserExistThenMethodGetUserShouldReturnUserName()
+        public void WhenUserExistThenMethodGetUserShouldReturnUserName()
         {
             //Arrange
             var userName = "John Smith";
 
-            
-
+            _userRepositoryMock.Setup(s => s.GetUserByUserName(It.IsAny<string>()))
+                .Returns(new User() {FullName = "John Smith", Contact = "123456789"});
+           
             //Act 
 
-            var user = GetUser(userName);
+            var user = _sut.GetUser(userName);
 
 
             //Assert
-
+            Assert.AreEqual(userName,user.FullName);
 
 
         }
 
 
+        [Test]
 
+        public void SampleTest()
+        {
+
+            //Arrange
+            var userName = "John Smith";
+
+            //_userRepositoryMock.Setup(s => s.GetUserByUserName(It.IsAny<string>()))
+            //    .Returns(new User() { FullName = "John Smith", Contact = "123456789" });
+
+            ////Act 
+
+            //var user = _sut.GetUser(userName);
+
+
+            ////Assert
+            //Assert.AreEqual(userName, user.FullName);
+
+
+        }
 
 
 

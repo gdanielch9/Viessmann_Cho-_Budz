@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace UniversityIot.VitocontrolApi.Controllers
 {
-    [Authorize]
+
     public class ValuesController : ApiController
     {
         // GET api/values

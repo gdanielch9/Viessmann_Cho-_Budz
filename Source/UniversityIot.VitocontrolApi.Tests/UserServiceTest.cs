@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using UniversityIot.VitocontrolApi.Repositories;
+using UniversityIot.VitocontrolApi.Services;
 
 namespace UniversityIot.VitocontrolApi.Tests
 {
@@ -26,7 +28,7 @@ namespace UniversityIot.VitocontrolApi.Tests
 
             //Act 
 
-            var user = GetUser(userName);
+           // var user = GetUser(userName);
 
 
             //Assert

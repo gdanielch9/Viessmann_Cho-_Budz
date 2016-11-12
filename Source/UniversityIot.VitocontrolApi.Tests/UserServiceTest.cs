@@ -12,16 +12,16 @@ using UniversityIot.VitocontrolApi.Services;
 namespace UniversityIot.VitocontrolApi.Tests
 {
     [TestFixture]
-    public class UserServiceTest
+     class UserServiceTest
     {
 
-        private Mock<UserRepository> _userRepositoryMock;
+        private Mock<IUserRepository> _userRepositoryMock;
         private UserService _sut;
 
         [SetUp]
         public void SetUp()
         {
-            _userRepositoryMock = new Mock<UserRepository>();
+            _userRepositoryMock = new Mock<IUserRepository>();
             _sut = new UserService(_userRepositoryMock.Object);
         }
 
@@ -47,8 +47,8 @@ namespace UniversityIot.VitocontrolApi.Tests
         }
 
 
-        [Test]
 
+        [Test]
         public void SampleTest()
         {
 

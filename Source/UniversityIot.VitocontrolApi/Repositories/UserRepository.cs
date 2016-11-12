@@ -9,8 +9,6 @@ namespace UniversityIot.VitocontrolApi.Repositories
     public class UserRepository : IUserRepository
     {
 
-
-
         public User GetUserByUserName(string userName)
         {
             var user = new User();

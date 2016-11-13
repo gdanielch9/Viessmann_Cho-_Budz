@@ -5,7 +5,7 @@ using System.Web;
 
 namespace UniversityIot.VitocontrolApi.Repositories
 {
-    public class GatewayRepository
+    public class GatewayRepository : IGatewayRepository
     {
         public bool CreateGateway(int i)
         {

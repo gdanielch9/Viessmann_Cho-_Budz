@@ -10,5 +10,6 @@ namespace UniversityIot.VitocontrolApi.Services
     public interface IUserService
     {
         User GetUser(string userName);
+        bool CreateUser(User user);
     }
 }

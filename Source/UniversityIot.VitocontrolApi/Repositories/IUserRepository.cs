@@ -9,8 +9,8 @@ namespace UniversityIot.VitocontrolApi.Repositories
 {
     public interface IUserRepository
     {
-
         User GetUserByUserName(string userName);
-
+        bool CreateUser(User user);
+        bool DeleteUser(User user);
     }
 }

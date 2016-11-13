@@ -25,5 +25,17 @@ namespace UniversityIot.VitocontrolApi.Services
 
         }
 
+        public bool CreateUser(User user)
+        {
+            var userCreated  = _userRepository.CreateUser(user);
+            return userCreated;
+        }
+
+        public bool DeleteUser(User user)
+        {
+            var userDeleted = _userRepository.DeleteUser(user);
+            return userDeleted;
+        }
+
     }
 }

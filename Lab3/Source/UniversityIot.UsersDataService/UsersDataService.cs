@@ -1,7 +1,7 @@
 ﻿namespace UniversityIot.UsersDataService
 {
-    using System;
     using System.Threading.Tasks;
+    using GatewaysDataAccess;
     using UniversityIot.UsersDataAccess;
     using UniversityIot.UsersDataAccess.Models;
 
@@ -12,26 +12,49 @@
             using (var contex = new UsersContext())
             {
                 contex.Users.Add(user);
-
                 await contex.SaveChangesAsync();
             }
 
            return user;
         }
 
-        public Task DeleteUserAsync(int id)
+        public async Task DeleteUserAsync(int id)
         {
-            throw new NotImplementedException();
+            using (var contex = new UsersContext())
+            {
+                var user = contex.Users.Find(id);
+
+                if (user != null)
+                {
+                    contex.Users.Remove(user);
+                    await contex.SaveChangesAsync();
+                }
+            }
         }
 
-        public Task<User> GetUserAsync(int id)
+        public async Task<User> GetUserAsync(int id)
         {
-            throw new NotImplementedException();
+            User user;
+            using (var contex = new UsersContext())
+            {
+                user = contex.Users.Find(id);
+            }
+
+            return user;
         }
 
-        public Task<User> UpdateUserAsync(User user)
+        public async Task<User> UpdateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            using (var contex = new UsersContext())
+            {
+                var oldUser = contex.Users.Find(user.Id);
+                contex.Users.Remove(oldUser);
+                contex.Users.Add(user);
+
+                await contex.SaveChangesAsync();
+            }
+
+            return user;
         }
     }
 }

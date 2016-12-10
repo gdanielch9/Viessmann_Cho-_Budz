@@ -1,6 +1,7 @@
 ﻿namespace UniversityIot.UsersDataService.Tests.UsersDataServiceTests
 {
     using NUnit.Framework;
+    using System.Collections.Generic;
     using UniversityIot.UsersDataAccess;
     using UniversityIot.UsersDataAccess.Models;
 
@@ -12,7 +13,8 @@
             {
                 CustomerNumber = "1234567890",
                 Name = "Fake name",
-                Password = "Fake password"
+                Password = "Fake password",
+                UserGateways = new List<UserGateway>()
             };
             
             return user;

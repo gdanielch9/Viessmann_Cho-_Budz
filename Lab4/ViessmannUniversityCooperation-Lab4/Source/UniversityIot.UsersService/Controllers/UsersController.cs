@@ -43,7 +43,7 @@
         [Route("")]
         public async Task<IHttpActionResult> Post(AddUserViewModel userVM)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -70,11 +70,27 @@
             return Ok();
         }
 
-        //[Route("{id:int}")]
-        //public async Task<IHttpActionResult> Put(int id, [FromBody]EditUserViewModel userVm)
-        //{
+        [Route("{id:int}")]
+        public async Task<IHttpActionResult> Put(int id, [FromBody]EditUserViewModel userVM)
+        {
+            if (ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //}
+            var user = await this.usersDataService.GetUserAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.CustomerNumber = user.CustomerNumber;
+            await this.usersDataService.UpdateUserAsync(user);
+            user.Password = string.Empty;
+
+            return Ok(user);
+        }
 
         private static UserViewModel MapUser(User user)
         {

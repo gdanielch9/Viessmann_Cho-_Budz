@@ -1,4 +1,6 @@
-﻿namespace UniversityIot.UsersService.Controllers
+﻿using UniversityIot.UsersService.Infrastructure;
+
+namespace UniversityIot.UsersService.Controllers
 {
     using System;
     using System.Threading.Tasks;
@@ -12,10 +14,12 @@
     public class UsersController : ApiController
     {
         private readonly IUsersDataService usersDataService;
+        private readonly IMappingInfrastructure  _mappingInfrastructure;
 
-        public UsersController(IUsersDataService usersDataService)
+        public UsersController(IUsersDataService usersDataService, IMappingInfrastructure mappingInfrastructure)
         {
             this.usersDataService = usersDataService;
+            _mappingInfrastructure = mappingInfrastructure;
         }
 
         [Route("")]
@@ -34,25 +38,26 @@
                 return NotFound();
             }
 
-            UserViewModel userVM = MapUser(user);
-            userVM.Password = string.Empty;
+            UserViewModel userViewModel = _mappingInfrastructure.MapUserToUserViewModel(user);
+            userViewModel.Password = string.Empty;
 
-            return Ok(userVM);
+            return Ok(userViewModel);
         }
 
         [Route("")]
-        public async Task<IHttpActionResult> Post(AddUserViewModel userVM)
+        public async Task<IHttpActionResult> Post(AddUserViewModel addUserViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var addedUser = await this.usersDataService.AddUserAsync(MapUser(userVM));
+            var user = _mappingInfrastructure.MapAddUserViewModelToUser(addUserViewModel);
+            var addedUser = await this.usersDataService.AddUserAsync(user);
 
-            var addedUserVM = MapUser(addedUser);
+            var addedUserViewModel = _mappingInfrastructure.MapUserToUserViewModel(addedUser);
 
-            return Ok(addedUserVM);
+            return Ok(addedUserViewModel);
         }
 
         [Route("{id:int}")]
@@ -92,39 +97,5 @@
             return Ok(user);
         }
 
-        private static UserViewModel MapUser(User user)
-        {
-            var userVM = new UserViewModel()
-            {
-                CustomerNumber = user.CustomerNumber,
-                Id = user.Id,
-                Name = user.Name,
-                Password = user.Password
-            };
-
-            foreach (var userGateway in user.UserGateways)
-            {
-                userVM.UserGateways.Add(new UserGatewayViewModel()
-                {
-                    GatewaySerial = userGateway.GatewaySerial,
-                    Id = userGateway.Id,
-                    AccessType = userGateway.AccessType.ToString()
-                });
-            }
-
-            return userVM;
-        }
-
-        private static User MapUser(AddUserViewModel userVM)
-        {
-            var user = new User()
-            {
-                CustomerNumber = userVM.CustomerNumber,
-                Name = userVM.Name,
-                Password = userVM.Password
-            };
-
-            return user;
-        }
     }
 }
